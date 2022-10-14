@@ -1,0 +1,14 @@
+﻿@model HomeViewModel
+
+<h2>Todas as camisolas de futebol num único local!</h2>
+<br />
+<partial name="_Carousel"></partial>
+<br />
+<h2>As preferidas da semana</h2>
+
+<div class="row">
+    @foreach ( var shirt in Model.FavouriteShirts)
+    {
+        <partial name="_ShirtsResumo" for="@shirt" />
+    }
+</div>

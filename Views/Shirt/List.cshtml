@@ -1,0 +1,19 @@
+﻿@model ShirtListViewModel 
+
+<div><h2>@ViewData["Titulo"]</h2></div>
+<div><h2>@Model.CategoriaAtual</h2></div>
+<hr />
+<h3>@ViewBag.Total @ViewBag.TotalShirts</h3>
+<hr />
+
+
+<div class="container">
+<div class="row">
+
+@foreach (var shirt in Model.Shirts)
+{
+ <partial name="_ShirtsResumo" for="@shirt" />
+}
+
+</div>
+</div>

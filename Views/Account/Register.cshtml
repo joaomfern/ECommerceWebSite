@@ -1,0 +1,43 @@
+﻿@model LoginViewModel
+
+
+<table class="table">
+    <tr>
+        <td> 
+            <div class="col-2 col-md-2 col-lg-2">
+            <img src="~/images/icon-register.png" alt="Fazer o registro" class="center-block" width="80" height="80" />
+            </div>
+        </td>
+        <td>
+            <div class="row">
+                <div class="col-10 col-md-10 col-lg-10">
+                    <h4>Registar usuário</h4>
+                    <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal">
+                        <hr />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="UserName" class="col-md-2 control-label"></label>
+                            <div class="col-md-6">
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                            <label asp-for="Password" class="col-md-2 control-label"></label>
+                            <div class="col-md-6">
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <br />
+                            <div class="form-group">
+                            <div class="col-md-8">
+                                <input type="submit" class="btn btn-success" value="Registar" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

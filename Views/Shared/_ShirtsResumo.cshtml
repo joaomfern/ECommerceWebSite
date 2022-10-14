@@ -1,0 +1,21 @@
+﻿@model Shirt 
+   
+<div class="col-sm-4 col-md-4 col-lg-4">              
+        <p><img src="@Url.Content(@Model.ImagemUrl)"  alt="" width="300" height="300"/></p>    
+        <p> Preço: @Model.Preco.ToString("c")</p>    
+ 
+        <h4>
+        <a asp-controller="Shirt" asp-action="Details" asp-route-shirtId="@Model.ShirtId">@Model.Nome</a>
+        </h4>
+        <p>@Model.DescricaoCurta</p>  
+        
+      <div>
+        <p class="button">
+            <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" 
+            asp-action="AdicionarItemNoCarrinhoCompra" asp-route-shirtId="@Model.ShirtId">
+            Incluir no Carrinho
+        </a>
+        </p>
+    </div>
+
+    </div>   
