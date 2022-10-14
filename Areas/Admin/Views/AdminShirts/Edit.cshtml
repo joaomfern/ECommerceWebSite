@@ -1,0 +1,82 @@
+﻿@model EcommerceProject.Models.Shirt
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Shirt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ShirtId" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoCurta" class="control-label"></label>
+                <input asp-for="DescricaoCurta" class="form-control" />
+                <span asp-validation-for="DescricaoCurta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoDetalhada" class="control-label"></label>
+                <input asp-for="DescricaoDetalhada" class="form-control" />
+                <span asp-validation-for="DescricaoDetalhada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="ImagemUrl" class="control-label"></label>
+                <input asp-for="ImagemUrl" class="form-control" />
+                <span asp-validation-for="ImagemUrl" class="text-danger"></span>
+                  <label asp-for="ImagemThumbnailUrl" class="control-label"></label>
+                <input asp-for="ImagemThumbnailUrl" class="form-control" />
+                <span asp-validation-for="ImagemThumbnailUrl" class="text-danger"></span>
+            </div>
+              <div class="form-group col-md-6">
+                <img src="@Url.Content(@Model.ImagemUrl)" class="img-fluid" alt="" />
+            </div>
+             </div>
+            <div class="form-group">
+              
+            </div>
+            <br />
+             <div class="row">
+            <div class="form-group col-sm-4">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsFavourite" /> @Html.DisplayNameFor(model => model.IsFavourite)
+                </label>
+            </div>
+            <div class="form-group col-sm-4">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EmStock" /> @Html.DisplayNameFor(model => model.EmStock)
+                </label>
+            </div>
+        
+            <div class="form-group col-sm-4">
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId"></select>
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
+            </div>
+                 </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

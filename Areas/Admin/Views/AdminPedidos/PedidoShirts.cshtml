@@ -1,0 +1,46 @@
+﻿@model EcommerceProject.ViewModels.PedidoShirtViewModel
+
+@{
+    ViewData["Title"] = "PedidoShirts";
+    decimal totalPedido = 0;
+
+}
+
+<h1>Camisolas do Pedido</h1>
+<hr />
+
+<h3>Id do Pedido: @Html.DisplayFor( model => @Model.Pedido.PedidoId)</h3>
+<h3>Cliente: @Html.DisplayFor( model => @Model.Pedido.Nome)</h3>
+<h3>Data do Pedido: @Html.DisplayFor( model => @Model.Pedido.PedidoEnviado)</h3>
+<h3>Entrega do Pedido: @Html.DisplayFor( model => @Model.Pedido.PedidoEntregueEm)</h3>
+
+<table class="table">
+@foreach (var item in @Model.Pedido.PedidoItens) 
+{
+        totalPedido += (@item.Shirt.Preco * @item.Quantidade);
+        <tr>
+            <td align="right">
+               <h3> @Html.DisplayFor(modelItem => item.Shirt.Nome)</h3>
+            </td>
+                 <td align="right">
+              <img src="@Url.Content(item.Shirt.ImagemUrl)" class="img-fluid" height="100" width="100" alt="" />
+            </td>
+                 <td align="right">
+               <h3> @string.Format("{0:C}", item.Shirt.Preco)</h3>
+            </td>
+                 <td align="right">
+               <h3> (@Html.DisplayFor(modelItem => item.Quantidade))</h3>
+            </td>
+        </tr>
+}
+<tr>
+<td colspan="2">&nbsp;</td>
+<td align="right">
+    <h3>Total do Pedido : @string.Format("{0:C}", @totalPedido)</h3>
+</td>
+</tr>
+</table>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
